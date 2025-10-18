@@ -1,0 +1,152 @@
+/* ABOUT SECTION */
+.about {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 60px 20px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0px 3px 8px rgba(0,0,0,0.1);
+
+  max-width: 1000px; 
+  width: 100%;
+}
+
+.about-left {
+  flex: 1;
+  text-align: left;
+}
+.about-left h2 {
+  font-size: 28px;
+  font-weight: 700;
+}
+.about-left h2 span {
+  color: #111;
+}
+.about-left p {
+  color: #777;
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+/* Stats */
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.stat-box {
+  background: #fafafa;
+  border: 2px dashed transparent;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+  position: relative;
+}
+.stat-box h3 {
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0;
+  display: inline-block;
+}
+.stat-box sup {
+  font-size: 16px;
+  margin-left: 3px;
+}
+.stat-box p {
+  margin: 5px 0 0;
+  font-size: 14px;
+}
+
+/* Right section */
+.about-right {
+  flex: 2;
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+}
+.details {
+  margin-top: 20px;
+  list-style: none;
+  padding: 0;
+}
+.details li {
+  margin-bottom: 10px;
+}
+
+/* ✅ RESPONSIVE STYLES */
+
+/* Tablets & small laptops */
+@media (max-width: 992px) {
+  .about {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .about-left {
+    text-align: center;
+  }
+
+  .stats {
+    flex-direction: row;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .stat-box {
+    flex: 1;
+    min-width: 120px;
+  }
+
+  .about-right {
+    margin-top: 30px;
+    font-size: 15px;
+  }
+}
+
+/* Large phones */
+@media (max-width: 768px) {
+  .about-left h2 {
+    font-size: 24px;
+  }
+
+  .stat-box h3 {
+    font-size: 22px;
+  }
+  .stat-box p {
+    font-size: 13px;
+  }
+
+  .about-right {
+    font-size: 14px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .stats {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stat-box {
+    width: 85%;
+    padding: 15px;
+  }
+
+  .about-left h2 {
+    font-size: 22px;
+  }
+  .about-left p {
+    font-size: 14px;
+  }
+  .about-right {
+    font-size: 13px;
+  }
+}

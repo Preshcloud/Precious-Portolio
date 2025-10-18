@@ -1,0 +1,139 @@
+/* SERVICE CARD base */
+body {
+  font-family: Arial, sans-serif;
+  background: #fff;
+  color: #333;
+  scroll-behavior: smooth;
+  
+}
+
+/* SERVICES SECTION */
+#services {
+  padding: 60px 20px;
+  max-width: 1100px;
+  margin: auto;
+  background: #fff;
+  padding: 40px;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#services h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+#services h2 strong {
+  color: #000;
+}
+
+#services p.subtitle {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 40px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* SERVICES GRID */
+.services-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+/* SERVICE CARD */
+.service-card {
+  position: relative;
+  border-radius: 12px;
+  transition: transform .25s ease, box-shadow .25s ease;
+  overflow: hidden;
+}
+
+/* animated dashed border (hidden until hover) */
+.service-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 2px; /* border thickness */
+  background: repeating-linear-gradient(
+    90deg,
+    #000 0 8px,
+    transparent 8px 16px
+  );
+  background-size: 16px 16px;
+
+  /* keep dashes only on border edges */
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  opacity: 0;
+  transition: opacity .18s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* card content */
+.service-card .card-content {
+  position: relative;
+  z-index: 2;
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  flex-direction: column; /* stack items nicely on small screens */
+}
+
+/* hover lift + glow */
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+/* show + animate dashed border on hover */
+.service-card:hover::before {
+  opacity: 1;
+  animation: scissorMove 1s linear infinite;
+}
+
+/* animate dashes moving around edges */
+@keyframes scissorMove {
+  from { background-position: 0 0; }
+  to   { background-position: 16px 0; }
+}
+
+/* RESPONSIVE BREAKPOINTS */
+
+/* Tablets (≥ 600px) */
+@media (min-width: 600px) {
+  .services-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Laptops (≥ 900px) */
+@media (min-width: 900px) {
+  .services-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Large screens (≥ 1200px) */
+@media (min-width: 1200px) {
+  .services-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

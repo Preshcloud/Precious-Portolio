@@ -1,0 +1,254 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #fff;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  max-width: 1200px;   /* keeps content from stretching too wide */
+  margin: 0 auto;      /* centers the container horizontally */
+  padding: 0 20px;     /* adds spacing on left & right */
+}
+
+
+/* PROJECTS SECTION */
+.projects-section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 50px 20px;
+}
+
+.projects-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.projects-section p.subtitle {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 30px;
+  max-width: 650px;
+}
+
+/* FILTER BUTTONS */
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.filter-buttons button {
+  padding: 10px 20px;
+  border: 2px dashed #bbb;
+  border-radius: 25px;
+  background: #fff;
+  cursor: pointer;
+  transition: border-color 0.3s, border-width 0.3s, transform 0.2s, background 0.3s;
+}
+
+.filter-buttons button:hover {
+  border-color: #333;
+  border-width: 3px;
+  transform: scale(1.05);
+}
+
+.filter-buttons button.active {
+  border-color: #000;
+  border-width: 3px;
+  background: #f0f0f0;
+}
+
+/* PROJECT GRID */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.project-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  display: block;
+}
+
+/* Hover zoom effect */
+.project-card:hover img {
+  transform: scale(1.1);
+}
+
+/* Overlay text */
+.project-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  text-align: center;
+  padding: 15px;
+}
+
+.project-card:hover .project-info {
+  opacity: 1;
+}
+
+.project-info h3 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.project-info p {
+  font-size: 0.9rem;
+  color: #ddd;
+}
+
+/* Hide projects when filtered */
+.project-card.hidden {
+  display: none;
+}
+
+/* SKILLS SECTION */
+.skills-section {
+  max-width: 1100px;
+  margin: auto;
+  padding: 50px 20px;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.top-skills {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.skill {
+  text-align: center;
+  margin: 20px;
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--color) calc(var(--percent) * 1%),
+    #eaeaea calc(var(--percent) * 1%)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* DESIGN SKILLS */
+.design-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.design-skill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 2px solid;
+  border-radius: 30px;
+  padding: 8px 15px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.design-skill span {
+  font-weight: normal;
+}
+
+/* Specific colors */
+.html-css { border-color: #0ac97f; color: #0ac97f; }
+.photoshop { border-color: #0072bc; color: #0072bc; }
+.adobe-xd { border-color: #e91e63; color: #e91e63; }
+.sketch { border-color: #fbbd08; color: #fbbd08; }
+
+/* ---------------- RESPONSIVENESS ---------------- */
+
+/* Small screens (phones ≤ 600px) */
+@media (max-width: 600px) {
+  .projects-section h2 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  .projects-section p.subtitle {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  .filter-buttons {
+    justify-content: center;
+  }
+  .filter-buttons button {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+  .project-info h3 {
+    font-size: 1rem;
+  }
+  .project-info p {
+    font-size: 0.8rem;
+  }
+  .top-skills {
+    flex-direction: column;
+    align-items: center;
+  }
+  .circle {
+    width: 80px;
+    height: 80px;
+    font-size: 1rem;
+  }
+}
+
+/* Medium screens (tablets ≤ 900px) */
+@media (max-width: 900px) {
+  .projects-section {
+    padding: 40px 15px;
+  }
+  .projects-section h2 {
+    font-size: 1.7rem;
+  }
+  .skills-section {
+    padding: 40px 15px;
+  }
+}
+
+/* Large screens (desktops ≥ 1200px) */
+@media (min-width: 1200px) {
+  .projects-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

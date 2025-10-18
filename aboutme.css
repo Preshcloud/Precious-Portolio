@@ -1,0 +1,95 @@
+/* ABOUT SECTION */
+
+.about {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 60px 20px;
+  margin: 40px auto;   /* center the section */
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0px 3px 8px rgba(0,0,0,0.1);
+
+  max-width: 1100px;   /* ✅ restrict width */
+  width: 100%;
+}
+
+.about-left { flex: 1; }
+.about-left h2 { font-size: 28px; font-weight: 700; }
+.about-left h2 span { color: #111; }
+.about-left p { color: #777; font-size: 16px; margin-bottom: 30px; }
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.stat-box {
+  background: #fafafa;
+  border: 2px dashed transparent;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+  position: relative;
+}
+.stat-box h3 {
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0;
+}
+.stat-box p { margin: 5px 0 0; font-size: 14px; }
+
+/* Scissor-like animation border */
+.stat-box::before,
+.stat-box::after {
+  content: "";
+  position: absolute;
+  width: 0; height: 2px;
+  background: #111;
+  transition: all 0.6s ease;
+}
+.stat-box::before { top: 0; left: 0; }
+.stat-box::after { bottom: 0; right: 0; }
+
+.stat-box:hover::before {
+  width: 100%; /* top border expands */
+}
+.stat-box:hover::after {
+  width: 100%; /* bottom border expands */
+}
+.stat-box:hover {
+  border: 2px dashed #111;
+  transform: translateY(-5px);
+}
+
+/* Right section */
+.about-right { flex: 2; font-size: 16px; color: #555; line-height: 1.6; }
+.details {
+  margin-top: 20px;
+  list-style: none;
+  padding: 0;
+}
+.details li { margin-bottom: 10px; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .about { flex-direction: column; }
+  .stats { flex-direction: row; justify-content: space-between; }
+  .stat-box { flex: 1; }
+}
+@media (max-width: 600px) {
+  .stats { flex-direction: column; }
+}
+.stat-box h3 {
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0;
+  display: inline-block;
+}
+.stat-box sup {
+  font-size: 16px;
+  margin-left: 3px;
+}
